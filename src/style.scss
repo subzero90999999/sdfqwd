@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+  max-width: 1320px;
+    margin: 0 auto;
+}
+.row{
+    flex-wrap: wrap;
+    display: flex;
+}   
+.col-6{
+    width: 50%;
+ padding: 15px;
+}
+.col-4{
+    width: 33.33%;
+    padding: 15px;
+}
