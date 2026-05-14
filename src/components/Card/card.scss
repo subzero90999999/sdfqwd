@@ -1,26 +1,61 @@
 .card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e8e8e8;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: white;
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
 
     &:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.2);
         border-color: #007bff;
-        transform: translateY(-5px);
+        transform: translateY(-8px) translateX(0);
+        background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+
+        &::before {
+            left: 100%;
+        }
+
+        .card__img {
+            transform: scale(1.08);
+        }
+
+        .card__title {
+            color: #007bff;
+        }
+
+        .card__button {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+        }
     }
 
     &__img {
         width: 100%;
         height: 200px;
         object-fit: scale-down;
-        margin-bottom: 10px;
-        border-radius: 4px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background-color: #f9f9f9;
+        padding: 8px;
     }
 
     &__link {
@@ -29,46 +64,97 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        transition: all 0.3s ease;
     }
 
     &__title {
         font-size: 16px;
         font-weight: 600;
         margin-bottom: 10px;
-        color: #252525;
-        transition: color 0.3s ease;
+        color: #1a1a1a;
+        transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        line-height: 1.4;
+        letter-spacing: 0.3px;
     }
 
     &__text {
         font-size: 14px;
         color: #666;
         margin-bottom: 8px;
-        line-height: 1.4;
+        line-height: 1.5;
+        transition: color 0.3s ease;
+
+        &:last-of-type {
+            font-weight: 600;
+            color: #007bff;
+            font-size: 16px;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
     }
 
     &__button {
         margin-top: auto;
-        padding: 10px 15px;
-        background-color: #007bff;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
         cursor: pointer;
         font-weight: 600;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         text-transform: uppercase;
         font-size: 12px;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+            z-index: 0;
+        }
 
         &:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #0056b3 0%, #003f87 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+
+            &::before {
+                left: 100%;
+            }
         }
 
         &:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
         }
     }
 
     a:hover .card__title {
         color: #007bff;
+    }
+
+    @media (max-width: 480px) {
+        padding: 12px;
+
+        &__img {
+            height: 150px;
+        }
+
+        &__title {
+            font-size: 14px;
+        }
+
+        &__text {
+            font-size: 12px;
+        }
     }
 }

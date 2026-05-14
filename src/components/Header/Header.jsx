@@ -20,7 +20,7 @@ const Header = () => {
                             {category}
                         </Link>
                     ))}
-                     <Link className='header__nav__link' to="/cart">cart</Link>
+                     <Link className='header__nav__link' to="/cart">🛒 cart</Link>
                 </nav>
             </div>
         </header>
