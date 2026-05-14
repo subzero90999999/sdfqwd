@@ -1,0 +1,30 @@
+.cart{
+    padding: 50px 0;
+     &__item{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0;
+        border-bottom: 1px solid #252525;
+        padding: 10px 0;
+        &__left{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            &-img{
+                width: 200px;
+            }
+        }
+
+        &__right{
+            display: flex;
+            column-gap: 20px;
+            align-items: center;
+            &-count{
+                display: flex;
+                column-gap: 10px;
+            }
+        }
+    }
+}   

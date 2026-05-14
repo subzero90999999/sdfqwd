@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
-import { useNameStore } from '../../Store/Store';
+import CategoryComponent from "../../components/CategoryComponent/CategoryComponent";
+import { useCategoryStore } from "../../store/store";
 
 const HomePage = () => {
-  const [inputValue, setInputValue] = useState('');
+    const { categories } = useCategoryStore();
 
-   const { names, addName } = useNameStore();
-
-  const handleAdd = () => {
-    if (inputValue.trim()) {
-      addName(inputValue);
-      setInputValue('');
-    }
-  };
-
-  return (
-    <div>
-      <h2> Список   имен</h2>
-
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Введите имя..."
-      />
-      <button onClick={handleAdd}>Добавить</button>
-
-      <ul>
-        {names.map((name, index) => (
-          <li key={index}>{name}</li>
-          
-        ))}
-        
-      </ul>
-       
-    </div>
-  );
-};
+    return (
+        <main>
+            {categories.map((category) => (
+                <CategoryComponent key={category} category={category} limit={4} />
+            ))}
+        </main>
+    );
+}
 
 export default HomePage;
